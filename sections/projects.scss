@@ -1,0 +1,158 @@
+@import '@/styles/variables.scss';
+@import '@/styles/themes.scss';
+
+.projects {
+    margin-bottom: 69px;
+    
+    p {
+        transition: transform .6s cubic-bezier(0.19,1,0.21,1);
+    }
+    
+    h2 {
+        font-weight: 600;
+        font-size: clamp(34px, 6vw + 1.5rem, 52px);
+    }
+
+    .projects-table {
+        width: 100%;
+        margin-top: 29px;
+
+        thead tr th {
+            font-weight: 500;
+            text-align: left;
+            font-size: 24px;
+
+            p {
+                margin-bottom: 26px;
+            }
+
+            @include themify($themes) {
+                color: themed('secondaryTextColor');
+            }
+        }
+
+        tbody tr {
+            @include themify($themes) {
+                border-top: 2px solid themed('secondaryTextColor');
+                border-bottom: 2px solid themed('secondaryTextColor');
+            }
+        }
+        
+        .table-title > p {
+            font-size: 28px !important;
+        }
+
+        .technologies-title {
+            display: block;
+
+            @include sm {
+                display: none;
+            }
+        }
+
+        .project {
+            cursor: pointer;
+
+            &:hover {
+                @include themify($themes) {
+                    p {
+                        -webkit-text-decoration: themed('accentColor') solid underline;
+                        text-decoration: themed('accentColor') solid underline;
+                        -webkit-text-decoration-skip: ink;
+                        text-decoration-skip: ink;
+                        opacity: 0.75;
+                        transform: translateX(20px);
+                    }
+                }
+        
+                .arrow-box svg {
+                    rotate: -45deg;
+
+                    @include themify($themes) {
+                        color: themed('accentColor');
+                    }
+                }
+        
+                .arrow-box .arrow {
+                    @include themify($themes) {
+                        background-color: transparent;
+                        border: 1px dashed themed('primaryTextColor');
+                    }
+                }
+            }
+
+            a {
+                all: unset;
+            }
+
+            .name {
+                p {
+                    font-size: clamp(20px, 6vw + 1.5rem, 36px);
+                    font-size: 36px;
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                    transition: text-decoration 0.2s cubic-bezier(.17, .67, .84, .6),
+                                color 0.2s cubic-bezier(.17, .67, .84, .6)
+                                transform .6s cubic-bezier(0.19,1,0.22,1);
+                }
+
+                .year {
+                    position: relative;
+                    font-size: 14px;
+                    font-weight: 500;
+                    top: 0px;
+                    left: 0px;
+                    height: 0px;
+    
+                    @include themify($themes) {
+                        color: themed('accentColor');
+                    }
+                }
+            }
+
+            .technologies {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 9px;
+
+                @include sm {
+                    display: none;
+                }
+
+                .technology {
+                    padding: 1px 12px;
+                    border-radius: 40px;
+
+                    @include themify($themes) {
+                        border: 1px solid themed('secondaryTextColor');
+                    }
+                }
+            }
+
+            .arrow-box {
+                width: 48px;
+                height: 48px;
+
+                .arrow {
+                    vertical-align: middle;
+                    padding: 20px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px transparent solid;
+                    
+                    svg {
+                        transition: rotate 0.6s cubic-bezier(0.19,1,0.21,1);
+                    }
+    
+                    @include themify($themes) {
+                        background-color: themed('iconBox');
+                    }
+                }
+            }
+        }
+    }
+}

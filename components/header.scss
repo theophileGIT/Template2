@@ -1,0 +1,108 @@
+@import "@/styles/variables.scss";
+@import "@/styles/themes.scss";
+@import "@/styles/responsive.scss";
+
+header {
+    $padding-desktop: 54px;
+    $padding-mobile: 26px;
+    padding-top: $padding-desktop;
+    padding-bottom: $padding-desktop;
+
+    @include sm {
+        padding-top: $padding-mobile;
+        padding-bottom: $padding-mobile;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    p {
+        font-weight: 600;
+        font-size: 24px;
+        text-transform: uppercase;
+        align-self: flex-start;
+        text-align: right;
+
+        @include themify($themes) {
+            color: themed('secondaryTextColor');
+        }
+
+        @include sm {
+            font-size: 16px;
+        }
+    }
+
+    .themes-list {
+        $gap-desktop: 24px;
+        $gap-tablet: 18px;
+        $gap-mobile: 12px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: $gap-desktop;
+        flex-grow: 1;
+        
+        @include md {
+            gap: $gap-tablet;
+        }
+
+        @include sm {
+            gap: $gap-mobile;
+        }
+
+        .theme {
+            $size-desktop: 48px;
+            $size-tablet: 38px;
+            $size-mobile: 32px;
+            opacity: 75%;
+            width: $size-desktop;
+            height: $size-desktop;
+            rotate: -12deg;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            transition: rotate 0.2s cubic-bezier(.17, .67, .84, .6),
+                opacity 0.2s cubic-bezier(.17, .67, .84, .6);
+
+            @include md {
+                width: $size-tablet;
+                height: $size-tablet;
+            }
+
+            @include sm {
+                width: $size-mobile;
+                height: $size-mobile;
+            }
+
+            &:hover {
+                rotate: -2deg;
+                opacity: 90%;
+            }
+
+            @include themify($themes) {
+                box-shadow: themed('boxShadow');
+                border: 1px solid themed('secondaryTextColor');
+            }
+
+            img {
+                rotate: 15deg;
+            }
+        }
+
+        .active {
+            rotate: -2deg;
+
+            @include themify($themes) {
+                opacity: 100%;
+                border: 2px solid themed('accentColor');
+            }
+        }
+    }
+}

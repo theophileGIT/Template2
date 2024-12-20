@@ -1,0 +1,71 @@
+/* Screen sizes (XS, SM, MD, LG, XL) */
+$screen-xs-min: 320px;
+$screen-sm-min: 640px;
+$screen-md-min: 768px;
+$screen-lg-min: 1024px;
+$screen-xl-min: 1280px;
+$screen-xxl-min: 1536px;
+
+/* Extra-small devices */
+@mixin xs {
+    @media (max-width: #{$screen-xs-min}) {
+        @content;
+    }
+}
+
+/* Small devices */
+@mixin sm {
+    @media (max-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+
+/* Medium devices */
+@mixin md {
+    @media (max-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+
+/* Large devices */
+@mixin lg {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+
+/* Extra large devices */
+@mixin xl {
+    @media (max-width: #{$screen-xl-min}) {
+        @content;
+    }
+}
+
+/* Extra large devices */
+@mixin xxl {
+    @media (max-width: #{$screen-xxl-min}) {
+        @content;
+    }
+}
+
+/* Custom devices */
+@mixin bigger($screen) {
+    @media (min-width: #{$screen}) {
+        @content;
+    }
+}
+
+@mixin smaller($screen) {
+    @media (max-width: #{$screen}) {
+        @content;
+    }
+}
+
+@mixin between($min, $max) {
+    $min: $min + 'px';
+    $max: $max + 'px';
+
+    @media (max-width: $max) and (min-width: $min) {
+        @content;
+    }
+}

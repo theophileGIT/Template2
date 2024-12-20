@@ -1,0 +1,102 @@
+$themes: (
+    default: (
+        backgroundColor: #EEEEEE,
+        primaryTextColor: #222222,
+        secondaryTextColor: #888888,
+        secondaryTextLightColor: #B8B8B8,
+        accentColor: #EC4C08,
+        boxShadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+        iconBox: #FBFBFB,
+        gattaca: #D9D9D9
+    ),
+    pulpFiction: (
+        backgroundColor: #000000,
+        primaryTextColor: #FCAC01,
+        secondaryTextColor: #6b6a6a,
+        secondaryTextLightColor: #484848,
+        accentColor: #C50803,
+        boxShadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+        iconBox: #2e2e2e,
+        gattaca: #B4272F
+    ),
+    bladeRunner: (
+        backgroundColor: rgb(12, 17, 118),
+        primaryTextColor: #e9e9e9,
+        secondaryTextColor: #c4c4c4,
+        secondaryTextLightColor: #c8c8c8,
+        accentColor: #c51a1a,
+        boxShadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+        iconBox: #cb2c2c,
+        gattaca: #848484
+    ),
+    theMatrix: (
+        backgroundColor: rgb(33, 33, 33),
+        primaryTextColor: #e9e9e9,
+        secondaryTextColor: #6b6a6a,
+        secondaryTextLightColor: #484848,
+        accentColor: #1fca0f,
+        boxShadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+        iconBox: #5c5c5c,
+        gattaca: #525252
+    ),
+    2001: (
+        backgroundColor: #600202,
+        primaryTextColor: #FE716A,
+        secondaryTextColor: #b0b0b0,
+        secondaryTextLightColor: #d76060,
+        accentColor: #D6D6D6,
+        boxShadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+        iconBox: #711818,
+        gattaca: #969595
+    ),
+    her: (
+        backgroundColor: #C93825,
+        primaryTextColor: #F0F0F0,
+        secondaryTextColor: #cbcbcb,
+        secondaryTextLightColor: #dcdcdc,
+        accentColor: #95C1CA,
+        boxShadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+        iconBox: #CE4243,
+        gattaca: #95C1CA
+    ),
+    tron: (
+        backgroundColor: #0A1216,
+        primaryTextColor: #CDF7FB,
+        secondaryTextColor: #cbcbcb,
+        secondaryTextLightColor: #dcdcdc,
+        accentColor: #FC741E,
+        boxShadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+        iconBox: #484848,
+        gattaca: #68b8da
+    ),
+    mrRobot: (
+        backgroundColor: #101010,
+        primaryTextColor: #bebebe,
+        secondaryTextColor: #515151,
+        secondaryTextLightColor: #dcdcdc,
+        accentColor: #DB1924,
+        boxShadow: rgba(244, 244, 244, 0.231) 0px 1px 4px,
+        iconBox: #2E2E2E,
+        gattaca: #660000
+    )
+);
+
+@mixin themify( $themes: $themes ) {
+  @each $theme, $map in $themes {
+
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+};
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+};

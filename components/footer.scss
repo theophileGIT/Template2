@@ -1,0 +1,72 @@
+@import '@/styles/variables.scss';
+@import '@/styles/themes.scss';
+@import '@/styles/responsive.scss';
+
+footer {
+    padding-bottom: 69px;
+
+    .get-in-touch {
+        font-size: 132px;
+        font-weight: 600;
+        line-height: 1.1;
+
+        @include xxl {
+            font-size: 132px;
+        }
+
+        @include xl {
+            font-size: 100px;
+        }
+
+        @include lg {
+            font-size: 114px;
+        }
+
+        @include md {
+            font-size: 86px;
+        }
+
+        @include sm {
+            font-size: clamp(40px, 9vw + 1.5rem, 65px);
+        }
+
+        &:hover {
+            text-decoration: none !important;
+        }
+    }
+
+    .credits p {
+        font-size: 18px;
+
+        a {
+            @include themify($themes) {
+                color: themed('accentColor');
+            }
+        }
+    }
+
+    .socials {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 60px;
+
+        .social {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 20px;
+            gap: 2px;
+
+            @include themify($themes) {
+                color: themed('secondaryTextColor');
+            }
+
+            svg {
+                @include themify($themes) {
+                    color: themed('primaryTextColor');
+                }
+            }
+        }
+    }
+}

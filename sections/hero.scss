@@ -1,0 +1,80 @@
+@import '@/styles/variables.scss';
+@import '@/styles/themes.scss';
+@import '@/styles/responsive.scss';
+
+.hero {
+    margin-bottom: 94px;
+
+    .title {
+        @include sm {
+            margin-top: 12px;
+        }
+    }
+
+    .title h1 {
+        display: inline-block;
+        clip-path: polygon(0 0, 100% 0, 100% 200%, 0% 100%);
+        font-size: 152px;
+        font-weight: 600;
+        text-align: center;
+        line-height: 1.2;
+
+        @include xxl {
+            font-size: 126px;
+        }
+
+        @include xl {
+            font-size: 99px;
+        }
+
+        @include lg {
+            font-size: 138px;
+        }
+
+        @include md {
+            font-size: 116px;
+        }
+
+        @include sm {
+            text-align: left;
+            font-size: clamp(56px, 9vw + 1.8rem, 152px);
+        }
+
+        .new-line {
+            display: none;
+
+            @include lg {
+                display: block;
+            }
+        }
+    }
+
+    .subtitle {
+        .description {
+            display: flex;
+            flex-direction: column;
+            gap: $margin-desktop;
+
+            @include sm {
+                gap: $margin-mobile;
+            }
+        }
+
+        .work-details {
+            text-transform: uppercase;
+            font-weight: 600;
+            text-align: right;
+            line-height: 20px;
+
+            p {
+                font-size: 20px;
+            }
+        }
+
+        .work-details-col {
+            @include xl {
+                display: none;
+            }
+        }
+    }
+}

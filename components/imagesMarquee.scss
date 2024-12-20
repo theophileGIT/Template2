@@ -1,0 +1,41 @@
+@import '@/styles/responsive.scss';
+
+.images-marquee {
+    $height-desktop: 176px;
+    $height-mobile: 89px;
+
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    margin-left: -58px;
+    margin-top: $margin-desktop + 20px;
+    margin-bottom: $margin-desktop;
+
+    @include md {
+        margin-top: $margin-tablet;
+        margin-bottom: $margin-tablet;
+    }
+
+    @include sm {
+        margin-top: 36px;
+        margin-bottom: 36px;
+    }
+
+    .movie {
+        display: inline-block;
+        margin-right: 21px;
+
+        @include sm {
+            margin-right: 12px;
+        }
+    }
+
+    img {
+        height: $height-desktop;
+
+        @include sm {
+            height: $height-mobile;
+        } 
+    }
+}

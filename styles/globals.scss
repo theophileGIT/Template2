@@ -1,0 +1,95 @@
+@import "../node_modules/mouse-follower/src/scss/index.scss";
+@import "@/styles/themes.scss";
+@import "@/components/header.scss";
+@import "@/components/gattacaMarquee.scss";
+@import "@/components/imagesMarquee.scss";
+@import "@/components/header.scss";
+@import "@/components/footer.scss";
+@import "@/sections/hero.scss";
+@import "@/sections/projects.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: color 0.2s cubic-bezier(.17, .67, .84, .6), 
+              border-color 0.2s cubic-bezier(.17, .67, .84, .6), 
+              background-color 0.2s cubic-bezier(.17, .67, .84, .6);
+}
+
+b {
+  font-weight: 600;
+}
+
+p {
+  font-size: clamp(24px, 5vw, 36px);
+}
+
+a {
+  transition: text-decoration 0.2s cubic-bezier(.17, .67, .84, .6);
+  transition: opacity 0.2s cubic-bezier(.17, .67, .84, .6);
+
+  &:hover {
+    @include themify($themes) {
+      -webkit-text-decoration: themed('accentColor') solid underline;
+      text-decoration: themed('accentColor') solid underline 2px;
+      -webkit-text-decoration-skip: ink;
+      text-decoration-skip: ink;
+      opacity: 0.75;
+    }
+  }
+}
+
+main {
+  font-weight: 500;
+  min-height: 100vh;
+
+  @include themify($themes) {
+    color: themed('primaryTextColor');
+    background-color: themed('backgroundColor');
+  }
+}
+
+.mf-cursor {
+  @include themify($themes) {
+    color: themed('accentColor');
+  }
+
+  @include sm {
+    display: none;
+  }
+}
+
+.accent {
+  @include themify($themes) {
+    color: themed('accentColor');
+  }
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgb(179, 177, 177);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgb(136, 136, 136);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgb(100, 100, 100);
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: rgb(68, 68, 68);
+}

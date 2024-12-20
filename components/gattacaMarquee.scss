@@ -1,0 +1,10 @@
+.gattaca-marquee {
+    margin-bottom: 69px;
+    font-size: 26px;
+    letter-spacing: -2px;
+    font-weight: 700;
+
+    @include themify($themes) {
+        color: themed('gattaca');
+    }
+}
